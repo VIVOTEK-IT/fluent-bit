@@ -30,3 +30,7 @@ target_link_libraries(flb-aws flb-aws-compress)
 if(FLB_JEMALLOC)
   target_link_libraries(flb-aws libjemalloc)
 endif()
+
+# Solve circular dependency, otherwise it would get undefined flb_signv4_do error
+# fluent-bit → libflb-plugin-out_cloudwatch_logs.a (put_log_events) → libflb-aws.a (request_do) → libfluent-bit.a (flb_signv4_do)
+target_link_libraries(flb-aws fluent-bit-static)

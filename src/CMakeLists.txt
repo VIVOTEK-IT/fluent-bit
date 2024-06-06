@@ -377,11 +377,18 @@ set(FLB_DEPS
   nghttp2_static
   )
 
-if(OPENSSL_FOUND)
+if(USE_PREBUILT_OPENSSL)
   set(FLB_DEPS
     ${FLB_DEPS}
-    OpenSSL::SSL
+    OpenSSL_Built
     )
+else()
+  if(OPENSSL_FOUND)
+    set(FLB_DEPS
+      ${FLB_DEPS}
+      OpenSSL::SSL
+      )
+  endif()
 endif()
 
 # libyaml
