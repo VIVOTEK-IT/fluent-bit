@@ -3,12 +3,12 @@
 #
 # This can be used when running cmake in the following way:
 #  cd build/
-#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-amba.cmake
+#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-amba.cmake -DCMAKE_INSTALL_PREFIX=./output
 #
 
-if(DEFINED ENV{TOOLCHAIN_PATH} AND NOT "$ENV{TOOLCHAIN_PATH}" STREQUAL "")
-    # Set the CMake variable to the value of the environment variable
-    set(CROSS_PATH $ENV{TOOLCHAIN_PATH})
+# Change to use TOOLSDIR to sync with toolchain path in vsaas-fw-build (Vortex Camera FW build docker image)
+if(DEFINED ENV{TOOLSDIR} AND NOT "$ENV{TOOLSDIR}" STREQUAL "")
+    set(CROSS_PATH $ENV{TOOLSDIR})
 else()
     # Set a default value based on fluent-bit-build docker image
     set(CROSS_PATH "/opt/toolchains/amcv2x/linaro-aarch64-2018.08-gcc8.2/bin")

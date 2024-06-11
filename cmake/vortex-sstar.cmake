@@ -3,12 +3,12 @@
 #
 # This can be used when running cmake in the following way:
 #  cd build/
-#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-sstar.cmake
+#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-sstar.cmake -DCMAKE_INSTALL_PREFIX=./output
 #
 
-if(DEFINED ENV{TOOLCHAIN_PATH} AND NOT "$ENV{TOOLCHAIN_PATH}" STREQUAL "")
-    # Set the CMake variable to the value of the environment variable
-    set(CROSS_PATH $ENV{TOOLCHAIN_PATH})
+# Change to use TOOLSDIR to sync with toolchain path in vsaas-fw-build (Vortex Camera FW build docker image)
+if(DEFINED ENV{TOOLSDIR} AND NOT "$ENV{TOOLSDIR}" STREQUAL "")
+    set(CROSS_PATH $ENV{TOOLSDIR})
 else()
     # Set a default value based on fluent-bit-build docker image
     set(CROSS_PATH "/opt/toolchains/sigmastar/gcc-sigmastar-9.1.0-2019.11-x86_64_arm-linux-gnueabihf/bin")
