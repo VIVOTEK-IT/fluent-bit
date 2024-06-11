@@ -3,7 +3,7 @@
 #
 # This can be used when running cmake in the following way:
 #  cd build/
-#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-amba.cmake -DCMAKE_INSTALL_PREFIX=./output
+#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-amcv22_standard.cmake -DCMAKE_INSTALL_PREFIX=./output
 #
 
 # Change to use TOOLSDIR to sync with toolchain path in vsaas-fw-build (Vortex Camera FW build docker image)
