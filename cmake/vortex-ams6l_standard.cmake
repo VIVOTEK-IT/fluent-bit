@@ -4,7 +4,10 @@
 # This can be used when running cmake in the following way:
 #  cd build/
 #  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-ams6l_standard.cmake -DCMAKE_INSTALL_PREFIX=./output
-#
+# 
+# lbbacktrace use autoconf, need to set GNU_HOST or it will use wrong toolchain:
+#  export PATH=/opt/toolchains/amcv2x/linaro-aarch64-2018.08-gcc8.2/bin:$PATH
+#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-ams6l_standard.cmake -DCMAKE_INSTALL_PREFIX=./output -DGNU_HOST=aarch64-linux -DSANITIZE_ADDRESS=On
 
 # Change to use TOOLSDIR to sync with toolchain path in vsaas-fw-build (Vortex Camera FW build docker image)
 if(DEFINED ENV{TOOLSDIR} AND NOT "$ENV{TOOLSDIR}" STREQUAL "")

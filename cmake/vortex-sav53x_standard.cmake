@@ -2,9 +2,13 @@
 # CMake Toolchain file for crosscompiling on ARM.
 #
 # This can be used when running cmake in the following way:
+# TODO, some projects use autoconf, need to set GNU_HOST or it will use wrong toolchain
 #  cd build/
-#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-sav53x_standard.cmake -DCMAKE_INSTALL_PREFIX=./output
-#
+#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-sav53x_standard.cmake -DCMAKE_INSTALL_PREFIX=./output -DGNU_HOST=xxx
+# 
+# lbbacktrace use autoconf, need to set GNU_HOST or it will use wrong toolchain:
+#  export PATH=/opt/toolchains/sigmastar/gcc-sigmastar-9.1.0-2019.11-x86_64_arm-linux-gnueabihf/bin:$PATH
+#  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/vortex-sav53x_standard.cmake -DCMAKE_INSTALL_PREFIX=./output -DGNU_HOST=arm-linux -DSANITIZE_ADDRESS=On
 
 # Change to use TOOLSDIR to sync with toolchain path in vsaas-fw-build (Vortex Camera FW build docker image)
 if(DEFINED ENV{TOOLSDIR} AND NOT "$ENV{TOOLSDIR}" STREQUAL "")
