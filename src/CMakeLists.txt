@@ -509,7 +509,12 @@ if(FLB_BINARY)
     target_link_libraries(fluent-bit-bin libbacktrace)
   endif()
 
-  target_link_libraries(fluent-bit-bin fluent-bit-static ${CMAKE_THREAD_LIBS_INIT})
+  if(FLB_HTTP_SERVER)
+    # Solve circular dependency, otherwise it would get undefined flb_gzip_uncompress error
+    target_link_libraries(fluent-bit-bin flb-http-server fluent-bit-static ${CMAKE_THREAD_LIBS_INIT})
+  else()
+    target_link_libraries(fluent-bit-bin fluent-bit-static ${CMAKE_THREAD_LIBS_INIT})
+  endif()
 
   set_target_properties(fluent-bit-bin
     PROPERTIES
