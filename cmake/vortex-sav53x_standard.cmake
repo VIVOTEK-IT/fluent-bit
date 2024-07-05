@@ -40,10 +40,15 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
-# Use prebuilt OpenSSL, set version and platform, please check the CMakelists.txt in lib/openssl
+set(SOC_PLATFORM "sstar")
+
+# Use prebuilt OpenSSL, set version, please check the CMakelists.txt in lib/openssl
 set(USE_PREBUILT_OPENSSL 1)
 set(OPENSSL_VERSION "1.1.1w")
-set(OPENSSL_PLATFORM "sstar")
+
+# Use prebuilt LuaJIT, set version, please check the CMakelists.txt in lib/luajit-built
+set(USE_PREBUILT_LUAJIT 1)
+set(LUAJIT_VERSION "2.1")
 
 # Show variables
 message(STATUS "========= CMake Toolchain and OpenSSL settings =========")
@@ -52,5 +57,7 @@ message(STATUS "CMAKE_C_COMPILER: ${CMAKE_C_COMPILER}")
 message(STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
 message(STATUS "USE_PREBUILT_OPENSSL: ${USE_PREBUILT_OPENSSL}")
 message(STATUS "OPENSSL_VERSION: ${OPENSSL_VERSION}")
-message(STATUS "OPENSSL_PLATFORM: ${OPENSSL_PLATFORM}")
+message(STATUS "USE_PREBUILT_LUAJIT: ${USE_PREBUILT_LUAJIT}")
+message(STATUS "LUAJIT_VERSION: ${LUAJIT_VERSION}")
+message(STATUS "SOC_PLATFORM: ${SOC_PLATFORM}")
 message(STATUS "=========================================================")

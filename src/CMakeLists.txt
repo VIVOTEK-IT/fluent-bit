@@ -221,9 +221,17 @@ if(FLB_REGEX)
 endif()
 
 if(FLB_LUAJIT)
-  set(extra_libs
-    ${extra_libs}
-    "libluajit")
+  if(USE_PREBUILT_LUAJIT)
+    set(extra_libs
+      ${extra_libs}
+      LuaJIT_Built
+      )
+  else()
+    set(extra_libs
+      ${extra_libs}
+      "libluajit"
+      )
+  endif()
 endif()
 
 if(FLB_SQLDB)

@@ -42,7 +42,7 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 # Use prebuilt OpenSSL, set version and platform, please check the CMakelists.txt in lib/openssl
 set(USE_PREBUILT_OPENSSL 1)
 set(OPENSSL_VERSION "1.1.1w")
-set(OPENSSL_PLATFORM "amba")
+set(SOC_PLATFORM "amba")
 
 # Show variables
 message(STATUS "========= CMake Toolchain and OpenSSL settings =========")
@@ -51,5 +51,5 @@ message(STATUS "CMAKE_C_COMPILER: ${CMAKE_C_COMPILER}")
 message(STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
 message(STATUS "USE_PREBUILT_OPENSSL: ${USE_PREBUILT_OPENSSL}")
 message(STATUS "OPENSSL_VERSION: ${OPENSSL_VERSION}")
-message(STATUS "OPENSSL_PLATFORM: ${OPENSSL_PLATFORM}")
+message(STATUS "SOC_PLATFORM: ${SOC_PLATFORM}")
 message(STATUS "=========================================================")
