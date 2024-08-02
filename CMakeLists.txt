@@ -184,7 +184,7 @@ option(FLB_IN_HTTP                     "Enable HTTP input plugin"               
 option(FLB_IN_MEM                      "Enable Memory input plugin"                   No)
 option(FLB_IN_KUBERNETES_EVENTS        "Enable Kubernetes Events plugin"              No)
 option(FLB_IN_KAFKA                    "Enable Kafka input plugin"                    No)
-option(FLB_IN_KMSG                     "Enable Kernel log input plugin"               No)
+option(FLB_IN_KMSG                     "Enable Kernel log input plugin"               Yes)
 option(FLB_IN_LIB                      "Enable library mode input plugin"             No)
 option(FLB_IN_RANDOM                   "Enable random input plugin"                   No)
 option(FLB_IN_SERIAL                   "Enable Serial input plugin"                   No)
